@@ -643,20 +643,40 @@ function doImport(){
   toast(`成功匯入 ${imported.length} 門課程${merge?'（合併）':''}！`);
 }
 
+<script>
 function exportJSON(){
-  const blob = new Blob([JSON.stringify(courses, null, 2)],{type:'application/json'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = '課程總表.json'; a.click();
+  const blob = new Blob([JSON.stringify(courses, null, 2)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '課程總表.json';
+  a.click();
 }
 
-
+function exportCSV(){
   const headers = ['課號','課程名稱','授課老師','年級','學期','必選修','學分','上課時間','教室','備註'];
-  const rows = courses.map(c=>[c.code||'',c.name,c.teacher,c.year+'年級',c.sem+'學期',c.type,c.credits,c.schedule,c.room,c.note]);
-  const csv = [headers,...rows].map(r=>r.map(v=>'"'+(v||'').toString().replace(/"/g,'""')+'"').join(',')).join('\n');
-  const blob = new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = '課程總表.csv'; a.click();
+  const rows = courses.map(c => [
+    c.code || '',
+    c.name,
+    c.teacher,
+    c.year + '年級',
+    c.sem + '學期',
+    c.type,
+    c.credits,
+    c.schedule,
+    c.room,
+    c.note
+  ]);
+  const csv = [headers, ...rows]
+    .map(r => r.map(v => '"' + (v || '').toString().replace(/"/g,'""') + '"').join(','))
+    .join('\n');
+
+  const blob = new Blob(['\uFEFF' + csv], { type:'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '課程總表.csv';
+  a.click();
 }
+</script>
 
 function toast(msg){
   const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
