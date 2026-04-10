@@ -23,7 +23,6 @@
     --success-bg: #e8f5ed;
     --danger: #b82020;
     --danger-bg: #fdeaea;
-    --tag-colors: #3b4ea6, #1a6b3a, #b85c00, #7a2d8a, #1a5a6b, #6b3a1a, #2d6b5a, #6b1a3a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
@@ -50,7 +49,6 @@
 
   .main { padding: 20px 24px; }
 
-  /* ── TIMETABLE ── */
   .timetable-wrap { overflow-x: auto; }
   table.timetable { width: 100%; border-collapse: collapse; min-width: 700px; }
   .timetable th, .timetable td { border: 1px solid var(--border); text-align: center; vertical-align: top; min-width: 120px; }
@@ -64,7 +62,6 @@
   .course-chip .chip-teacher { color: inherit; opacity: 0.75; }
   .conflict-chip { outline: 2px solid var(--danger); }
 
-  /* ── LIST ── */
   .list-view { display: flex; flex-direction: column; gap: 1px; }
   .list-header { display: grid; grid-template-columns: 2fr 1.2fr 0.8fr 1.2fr 1fr 1fr 80px; gap: 0; padding: 8px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px 6px 0 0; font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
   .list-row { display: grid; grid-template-columns: 2fr 1.2fr 0.8fr 1.2fr 1fr 1fr 80px; gap: 0; padding: 10px 12px; background: var(--surface); border: 1px solid var(--border); border-top: none; align-items: center; transition: background 0.1s; }
@@ -78,7 +75,6 @@
   .badge-required { background: var(--success-bg); color: var(--success); }
   .conflict-badge { background: var(--danger-bg); color: var(--danger); font-size: 10px; padding: 2px 6px; border-radius: 20px; border: 1px solid #f4b0b0; }
 
-  /* ── MODAL ── */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; z-index: 200; }
   .modal { background: var(--surface); border-radius: 12px; padding: 0; width: 480px; max-width: 95vw; max-height: 90vh; overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--border); }
   .modal-header { padding: 16px 20px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -104,19 +100,18 @@
   .stat .lbl { font-size: 11px; color: var(--text3); }
   .stat.conflict .num { color: var(--danger); }
 
-  /* ── SYNC / AUTH ── */
   .sync-dot { width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block;margin-right:4px; }
   .sync-dot.syncing { background:var(--warn);animation:pulse 1s infinite; }
   .sync-dot.error { background:var(--danger); }
   @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
   .user-pill { display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);font-size:12px;color:var(--text2); }
   .user-pill img { width:20px;height:20px;border-radius:50%; }
-  /* login overlay */
+
   .login-overlay { position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:500; }
   .login-card { background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px 48px;text-align:center;max-width:400px;width:90%; }
   .login-card h2 { font-size:18px;font-weight:600;margin-bottom:8px; }
   .login-card p { font-size:13px;color:var(--text3);margin-bottom:24px; }
-  /* log modal */
+
   .log-row { display:grid;grid-template-columns:130px 1fr 80px 80px;gap:0;padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px;align-items:center; }
   .log-row:hover { background:var(--surface2); }
   .log-row.log-header { background:var(--surface2);font-weight:600;color:var(--text3);border-radius:6px 6px 0 0; }
@@ -124,7 +119,6 @@
   .action-edit { color:var(--accent); }
   .action-delete { color:var(--danger); }
   .action-restore { color:var(--warn); }
-  .readonly-banner { background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--text2);margin-bottom:16px;display:none; }
 
   @media (max-width: 600px) {
     .list-header, .list-row { grid-template-columns: 2fr 1fr 60px; }
@@ -291,7 +285,7 @@
       <div style="background:var(--surface2);border-radius:8px;padding:14px;font-size:13px;color:var(--text2);line-height:1.8;">
         <strong style="color:var(--text);">支援三種匯入方式：</strong><br>
         ① <b>JSON 檔案</b>（從本工具匯出的 .json）<br>
-        ② <b>CSV 檔案</b>（欄位：課程名稱, 授課老師, 年級, 學期, 必選修, 學分, 上課時間, 教室, 備註）<br>
+        ② <b>CSV 檔案</b>（欄位：課號, 課程名稱, 授課老師, 年級, 學期, 必選修, 學分, 上課時間, 教室, 備註）<br>
         ③ <b>直接貼上 CSV 文字</b>（下方文字框）
       </div>
       <div style="display:flex;gap:8px;align-items:center;margin-top:4px;">
@@ -300,7 +294,7 @@
       </div>
       <div class="form-row">
         <label>或直接貼上 CSV 內容（第一行為標題列）</label>
-        <textarea id="import-csv-text" rows="7" style="font-size:12px;font-family:monospace" placeholder="課程名稱,授課老師,年級,學期,必選修,學分,上課時間,教室,備註&#10;設計概論,王小明,1,上,必修,3,一1,一2,一3,A101,"></textarea>
+        <textarea id="import-csv-text" rows="7" style="font-size:12px;font-family:monospace" placeholder="課號,課程名稱,授課老師,年級,學期,必選修,學分,上課時間,教室,備註&#10;DMD1001,設計概論,王小明,1,上,必修,3,一1,一2,一3,A101,"></textarea>
       </div>
       <div style="background:var(--warn-bg);border:1px solid #f8d090;border-radius:7px;padding:10px 13px;font-size:12px;color:var(--warn);display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
         ⚠ 預設匯入會<b>取代</b>現有資料，請先備份！
@@ -318,6 +312,31 @@
 
 <div class="toast" id="toast"></div>
 
+<div class="login-overlay" id="login-overlay">
+  <div class="login-card">
+    <h2>數位媒體設計系課程總表</h2>
+    <p>請使用 Google 帳號登入以檢視或編輯課程</p>
+    <div id="google-signin-btn"></div>
+    <p style="margin-top:16px;font-size:11px;color:var(--text3)">僅限 Google 帳號登入 · 每次修改都會記錄身份</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="log-modal" style="display:none" onclick="if(event.target===this)closeLogModal()">
+  <div class="modal" style="width:680px;max-width:96vw">
+    <div class="modal-header">
+      <h3>歷史紀錄</h3>
+      <button class="close-btn" onclick="closeLogModal()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:0;max-height:60vh;overflow-y:auto">
+      <div id="log-content" style="padding:12px 16px;font-size:13px;color:var(--text3)">載入中…</div>
+    </div>
+    <div class="modal-footer">
+      <span style="font-size:12px;color:var(--text3);flex:1">點「還原」可回到該時間點的課程狀態</span>
+      <button class="btn" onclick="closeLogModal()">關閉</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const DAYS = ['一','二','三','四','五'];
 const DAY_LABEL = ['週一','週二','週三','週四','週五'];
@@ -334,26 +353,32 @@ const TAG_COLORS = [
   {bg:'#fbe8f0',text:'#7a1a3a'},
 ];
 
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyifUCh0bfa16aFBFdzez-9k_TpvfOOFO-f0Shwyow7hSAWCYTH8s0dH9TcLGkws-khFg/exec';
+
 let courses = JSON.parse(localStorage.getItem('dmd_courses') || 'null') || sampleData();
 let editingId = null;
 let currentTab = 'timetable';
+let currentUser = null;
+let isEditor = false;
+let _pendingImportData = null;
 
 function sampleData() {
   return [
     {id:uid(),code:'DMD1001',name:'設計概論',teacher:'王小明',year:'1',sem:'上',type:'必修',credits:3,schedule:'一1,一2,一3',room:'A101',note:''},
     {id:uid(),name:'數位影像設計',teacher:'李美玲',year:'1',sem:'上',type:'必修',credits:3,schedule:'二3,二4,二5',room:'D302',note:''},
     {id:uid(),name:'程式設計基礎',teacher:'陳彥甫',year:'1',sem:'上',type:'必修',credits:3,schedule:'三1,三2,三3',room:'B201',note:''},
-    {id:uid(),name:'色彩學',teacher:'王小明',year:'1',sem:'下',type:'必修',credits:2,schedule:'一4,一5',room:'A101',note:''},
-    {id:uid(),name:'互動設計概論',teacher:'張志遠',year:'2',sem:'上',type:'必修',credits:3,schedule:'二1,二2,二3',room:'D302',note:''},
-    {id:uid(),name:'使用者研究方法',teacher:'陳彥甫',year:'2',sem:'上',type:'必修',credits:3,schedule:'四3,四4,四5',room:'C301',note:''},
-    {id:uid(),name:'網頁設計',teacher:'李美玲',year:'2',sem:'下',type:'選修',credits:3,schedule:'五1,五2,五3',room:'D302',note:''},
-    {id:uid(),name:'動態影像設計',teacher:'張志遠',year:'3',sem:'上',type:'選修',credits:3,schedule:'一6,一7,一8',room:'E401',note:''},
-    {id:uid(),name:'數位敘事',teacher:'陳彥甫',year:'3',sem:'下',type:'選修',credits:3,schedule:'三6,三7,三8',room:'A101',note:''},
-    {id:uid(),name:'畢業設計（一）',teacher:'王小明',year:'4',sem:'上',type:'必修',credits:3,schedule:'五4,五5,五6',room:'設計工坊',note:''},
   ];
 }
 function uid(){ return Math.random().toString(36).slice(2,10); }
 function save(){ localStorage.setItem('dmd_courses', JSON.stringify(courses)); }
+function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
 
 function getTeacherColor(name){
   const teachers = [...new Set(courses.map(c=>c.teacher))].sort();
@@ -384,7 +409,7 @@ function getFiltered(){
   const year = document.getElementById('filter-year').value;
   const sem = document.getElementById('filter-sem').value;
   const search = document.getElementById('search').value.trim().toLowerCase();
-  return courses.filter(c=>
+  return courses.filter(c =>
     (!teacher || c.teacher===teacher) &&
     (!year || c.year===year) &&
     (!sem || c.sem===sem) &&
@@ -403,9 +428,8 @@ function updateTeacherFilter(){
 function render(){
   updateTeacherFilter();
   const filtered = getFiltered();
-  const {map, conflictIds} = detectConflicts();
+  const {conflictIds} = detectConflicts();
 
-  // stats
   const allConflicts = conflictIds.size;
   document.getElementById('stat-bar').innerHTML = `
     <div class="stat"><span class="num">${courses.length}</span><span class="lbl">總課程數</span></div>
@@ -414,12 +438,13 @@ function render(){
     <div class="stat ${allConflicts?'conflict':''}"><span class="num">${allConflicts}</span><span class="lbl">衝堂課程</span></div>
   `;
 
-  // conflict banner
   const banner = document.getElementById('conflict-banner');
   if(allConflicts){
     const names = courses.filter(c=>conflictIds.has(c.id)).map(c=>c.name).join('、');
     banner.innerHTML = `<div class="warn-banner">⚠ 偵測到衝堂：${names}</div>`;
-  } else { banner.innerHTML=''; }
+  } else {
+    banner.innerHTML = '';
+  }
 
   if(currentTab==='timetable') renderTimetable(filtered, conflictIds);
   else renderList(filtered, conflictIds);
@@ -437,8 +462,9 @@ function renderTimetable(filtered, conflictIds){
   });
 
   let html = '<div class="timetable-wrap"><table class="timetable"><thead><tr><th class="period-label">節次</th>';
-  DAYS.forEach((d,i)=>{ html+=`<th>${DAY_LABEL[i]}</th>`; });
+  DAYS.forEach((d,i)=>{ html += `<th>${DAY_LABEL[i]}</th>`; });
   html += '</tr></thead><tbody>';
+
   PERIODS.forEach(p=>{
     html += `<tr><td class="period-label"><strong>${p}</strong>${PERIOD_TIME[p]}</td>`;
     DAYS.forEach(d=>{
@@ -458,6 +484,7 @@ function renderTimetable(filtered, conflictIds){
     });
     html += '</tr>';
   });
+
   html += '</tbody></table></div>';
   tbl.innerHTML = html;
 }
@@ -474,7 +501,11 @@ function renderList(filtered, conflictIds){
       <span class="col-hide">必/選</span>
       <span>狀態</span>
     </div>`;
-  if(!filtered.length){ html += '<div style="padding:24px;text-align:center;color:var(--text3);background:var(--surface);border:1px solid var(--border);border-top:none">無符合條件的課程</div>'; }
+
+  if(!filtered.length){
+    html += '<div style="padding:24px;text-align:center;color:var(--text3);background:var(--surface);border:1px solid var(--border);border-top:none">無符合條件的課程</div>';
+  }
+
   filtered.forEach(c=>{
     const conflict = conflictIds.has(c.id);
     html += `<div class="list-row ${conflict?'conflict-row':''}" onclick='openEditModal("${c.id}")' style="cursor:pointer">
@@ -487,6 +518,7 @@ function renderList(filtered, conflictIds){
       <span>${conflict?'<span class="conflict-badge">衝堂</span>':''}</span>
     </div>`;
   });
+
   html += '</div>';
   el.innerHTML = html;
 }
@@ -495,8 +527,8 @@ function switchTab(t){
   currentTab = t;
   document.getElementById('tab-timetable').classList.toggle('active', t==='timetable');
   document.getElementById('tab-list').classList.toggle('active', t==='list');
-  document.getElementById('view-timetable').style.display = t==='timetable'?'':'none';
-  document.getElementById('view-list').style.display = t==='list'?'':'none';
+  document.getElementById('view-timetable').style.display = t==='timetable' ? '' : 'none';
+  document.getElementById('view-list').style.display = t==='list' ? '' : 'none';
   render();
 }
 
@@ -507,6 +539,7 @@ function openAddModal(){
   clearForm();
   document.getElementById('modal').style.display = 'flex';
 }
+
 function openEditModal(id){
   const c = courses.find(x=>x.id===id);
   if(!c) return;
@@ -526,8 +559,10 @@ function openEditModal(id){
   document.getElementById('f-note').value = c.note||'';
   document.getElementById('modal').style.display = 'flex';
 }
+
 function closeModal(){ document.getElementById('modal').style.display='none'; }
 function closeModalOverlay(e){ if(e.target===document.getElementById('modal')) closeModal(); }
+
 function clearForm(){
   ['f-code','f-name','f-teacher','f-schedule','f-room','f-note'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-credits').value=3;
@@ -536,35 +571,6 @@ function clearForm(){
   document.getElementById('f-sem').value='上';
   document.getElementById('f-type').value='必修';
 }
-function saveCourse(){
-  const name = document.getElementById('f-name').value.trim();
-  const teacher = document.getElementById('f-teacher').value.trim();
-  if(!name||!teacher){ toast('請填寫課程名稱與授課老師'); return; }
-  const obj = {
-    id: editingId || uid(),
-    code: document.getElementById('f-code').value.trim(),
-    name,teacher,
-    credits: +document.getElementById('f-credits').value,
-    year: document.getElementById('f-year').value,
-    sem: document.getElementById('f-sem').value,
-    type: document.getElementById('f-type').value,
-    periods: +document.getElementById('f-periods').value,
-    schedule: document.getElementById('f-schedule').value.trim(),
-    room: document.getElementById('f-room').value.trim(),
-    note: document.getElementById('f-note').value.trim(),
-  };
-  if(editingId){ const i=courses.findIndex(c=>c.id===editingId); courses[i]=obj; }
-  else { courses.push(obj); }
-  save(); closeModal(); render();
-  toast(editingId?'課程已更新':'課程已新增');
-}
-function deleteCurrent(){
-  if(!editingId) return;
-  if(!confirm('確定要刪除這門課程嗎？')) return;
-  courses = courses.filter(c=>c.id!==editingId);
-  save(); closeModal(); render();
-  toast('課程已刪除');
-}
 
 function openImportModal(){
   document.getElementById('import-csv-text').value='';
@@ -572,9 +578,9 @@ function openImportModal(){
   document.getElementById('import-merge').checked=false;
   document.getElementById('import-modal').style.display='flex';
 }
+
 function closeImportModal(){ document.getElementById('import-modal').style.display='none'; }
 
-let _pendingImportData = null;
 function handleFileImport(e){
   const file = e.target.files[0];
   if(!file) return;
@@ -585,7 +591,9 @@ function handleFileImport(e){
       try {
         _pendingImportData = {type:'json', data: JSON.parse(ev.target.result)};
         toast('JSON 已讀取，請按確認匯入');
-      } catch(err){ toast('JSON 格式錯誤，請確認檔案'); }
+      } catch(err){
+        toast('JSON 格式錯誤，請確認檔案');
+      }
     } else {
       _pendingImportData = {type:'csv', data: ev.target.result};
       document.getElementById('import-csv-text').value = ev.target.result;
@@ -634,12 +642,18 @@ function doImport(){
       imported = parseCSVText(_pendingImportData.data);
       if(!imported||!imported.length){ toast('CSV 格式錯誤'); return; }
     }
-  } else { toast('請選擇檔案或貼上 CSV 內容'); return; }
+  } else {
+    toast('請選擇檔案或貼上 CSV 內容');
+    return;
+  }
 
   if(merge){ courses = [...courses, ...imported]; }
   else { courses = imported; }
+
   _pendingImportData = null;
-  save(); closeImportModal(); render();
+  save();
+  closeImportModal();
+  render();
   toast(`成功匯入 ${imported.length} 門課程${merge?'（合併）':''}！`);
 }
 
@@ -676,98 +690,33 @@ function exportCSV(){
   a.click();
 }
 
-function toast(msg){
-  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 2200);
-}
-function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
-
-render();
-
-// ============================================================
-//  ★ 請填入你的 Apps Script 部署 URL
-// ============================================================
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyifUCh0bfa16aFBFdzez-9k_TpvfOOFO-f0Shwyow7hSAWCYTH8s0dH9TcLGkws-khFg/exec';
-
-// ============================================================
-//  Google Sign-In & Auth
-// ============================================================
-let currentUser = null;  // { email, name, picture, token }
-let isEditor = false;
-
-function initGoogleAuth() {
-  if (typeof google === 'undefined') {
-    // GSI not loaded yet, retry
-    setTimeout(initGoogleAuth, 500);
-    return;
-  }
-  google.accounts.id.initialize({
-    client_id: '354674098691-e1c52ljh9p5dcobmn84gijj44jqjj0kh.apps.googleusercontent.com',  // ★ 填入你的 OAuth Client ID
-    callback: handleCredential,
-    auto_select: false,
-    cancel_on_tap_outside: false,
-  });
-  google.accounts.id.renderButton(
-    document.getElementById('google-signin-btn'),
-    { theme: 'outline', size: 'large', locale: 'zh-TW', width: 280 }
-  );
-  google.accounts.id.prompt();
-}
-
-function handleCredential(response) {
-  // Decode JWT payload
-  const parts = response.credential.split('.');
-  const payload = JSON.parse(atob(parts[1].replace(/-/g,'+').replace(/_/g,'/')));
-  currentUser = {
-    email: payload.email,
-    name: payload.name || payload.email,
-    picture: payload.picture || '',
-    token: response.credential
-  };
-  isEditor = true;
-  document.getElementById('login-overlay').style.display = 'none';
-  document.getElementById('user-area').style.display = 'inline-flex';
-  document.getElementById('user-area').style.alignItems = 'center';
-  document.getElementById('user-area').style.gap = '8px';
-  document.getElementById('btn-add').style.display = 'inline-flex';
-  const pill = document.getElementById('user-pill');
-  pill.innerHTML = (currentUser.picture ? `<img src="${currentUser.picture}" alt="">` : '') + esc(currentUser.name);
-  // Load courses from Sheets
-  loadFromSheets();
-}
-
-function signOut() {
-  if (typeof google !== 'undefined') google.accounts.id.disableAutoSelect();
-  currentUser = null; isEditor = false;
-  document.getElementById('login-overlay').style.display = 'flex';
-  document.getElementById('user-area').style.display = 'none';
-  document.getElementById('btn-add').style.display = 'none';
-}
-
-// ============================================================
-//  Sheets sync
-// ============================================================
 function setSyncStatus(state, label) {
   const dot = document.getElementById('sync-dot');
   const lbl = document.getElementById('sync-label');
   dot.className = 'sync-dot' + (state === 'syncing' ? ' syncing' : state === 'error' ? ' error' : '');
-  if (lbl) lbl.textContent = label || '';
+  lbl.textContent = label || '';
 }
 
 async function loadFromSheets() {
   setSyncStatus('syncing', '載入中…');
   try {
-    const res = await fetch(APPS_SCRIPT_URL + '?action=courses', {credentials:'include'});
-    const data = await res.json();
-    if (Array.isArray(data) && data.length > 0) {
-      courses = data.map(c => ({...c, id: c.id || uid()}));
+    const res = await fetch(APPS_SCRIPT_URL + '?action=courses');
+    const text = await res.text();
+    console.log('courses raw response:', text);
+
+    const data = JSON.parse(text);
+
+    if (Array.isArray(data)) {
+      courses = data.map(c => ({ ...c, id: c.id || uid() }));
       save();
     }
+
     setSyncStatus('ok', '已同步');
     render();
-  } catch(e) {
+  } catch (e) {
+    console.error('loadFromSheets error:', e);
     setSyncStatus('error', '讀取失敗');
-    toast('無法連線 Sheets，使用本地資料');
+    toast('讀取失敗，請看 Console');
   }
 }
 
@@ -779,75 +728,42 @@ async function syncToSheets(action, payload) {
       method: 'POST',
       body: JSON.stringify({ action, editorName: currentUser.name, ...payload }),
     });
-    const data = await res.json();
-    if (data.ok) { setSyncStatus('ok', '已同步'); return data; }
-    else { setSyncStatus('error', '同步失敗'); toast('同步失敗：' + (data.error||'')); }
-  } catch(e) {
+    const text = await res.text();
+    console.log('sync raw response:', text);
+    const data = JSON.parse(text);
+
+    if (data.ok) {
+      setSyncStatus('ok', '已同步');
+      return data;
+    } else {
+      setSyncStatus('error', '同步失敗');
+      toast('同步失敗：' + (data.error || '未知錯誤'));
+    }
+  } catch (e) {
+    console.error('syncToSheets error:', e);
     setSyncStatus('error', '網路錯誤');
-    toast('網路錯誤，資料已存本地');
+    toast('網路錯誤，請看 Console');
   }
 }
-
-// Override saveCourse to sync
-const _origSaveCourse = saveCourse;
-saveCourse = async function() {
-  const name = document.getElementById('f-name').value.trim();
-  const teacher = document.getElementById('f-teacher').value.trim();
-  if (!name||!teacher){ toast('請填寫課程名稱與授課老師'); return; }
-  const obj = {
-    id: editingId || uid(),
-    code: document.getElementById('f-code').value.trim(),
-    name, teacher,
-    credits: +document.getElementById('f-credits').value,
-    year: document.getElementById('f-year').value,
-    sem: document.getElementById('f-sem').value,
-    type: document.getElementById('f-type').value,
-    periods: +document.getElementById('f-periods').value,
-    schedule: document.getElementById('f-schedule').value.trim(),
-    room: document.getElementById('f-room').value.trim(),
-    note: document.getElementById('f-note').value.trim(),
-  };
-  if (editingId) { const i=courses.findIndex(c=>c.id===editingId); courses[i]=obj; }
-  else { courses.push(obj); }
-  save(); closeModal(); render();
-  toast(editingId?'課程已更新':'課程已新增');
-  await syncToSheets('save', { course: obj });
-};
-
-// Override deleteCurrent to sync
-const _origDelete = deleteCurrent;
-deleteCurrent = async function() {
-  if(!editingId) return;
-  if(!confirm('確定要刪除這門課程嗎？')) return;
-  const id = editingId;
-  courses = courses.filter(c=>c.id!==id);
-  save(); closeModal(); render();
-  toast('課程已刪除');
-  await syncToSheets('delete', { courseId: id });
-};
-
-// ============================================================
-//  Log modal
-// ============================================================
-function openLogModal() {
-  document.getElementById('log-modal').style.display = 'flex';
-  loadLog();
-}
-function closeLogModal() { document.getElementById('log-modal').style.display = 'none'; }
 
 async function loadLog() {
   const el = document.getElementById('log-content');
   el.textContent = '載入中…';
   try {
-    const res = await fetch(APPS_SCRIPT_URL + '?action=log', {credentials:'include'});
-    const logs = await res.json();
+    const res = await fetch(APPS_SCRIPT_URL + '?action=log');
+    const text = await res.text();
+    console.log('log raw response:', text);
+    const logs = JSON.parse(text);
+
     if (!Array.isArray(logs) || !logs.length) {
       el.textContent = '目前沒有歷史紀錄';
       return;
     }
+
     const actionIcon = {add:'＋',edit:'✎',delete:'✕',restore:'↩'};
     const actionClass = {add:'action-add',edit:'action-edit',delete:'action-delete',restore:'action-restore'};
     let html = '<div class="log-row log-header"><span>時間</span><span>操作說明</span><span>操作者</span><span></span></div>';
+
     logs.forEach(l => {
       const ac = actionClass[l.action] || '';
       const ic = actionIcon[l.action] || '·';
@@ -859,15 +775,16 @@ async function loadLog() {
         <span>${l._row && l.action !== 'delete' ? `<button class="btn btn-danger" style="padding:3px 8px;font-size:11px" onclick="confirmRestore(${l._row},'${esc(dt)}')">還原</button>` : ''}</span>
       </div>`;
     });
+
     el.innerHTML = html;
-  } catch(e) {
+  } catch (e) {
+    console.error('loadLog error:', e);
     el.textContent = '無法載入歷史紀錄';
   }
 }
 
 async function confirmRestore(row, label) {
-  if (!confirm(`確定要還原到「${label}」的狀態嗎？
-目前所有課程將被此版本取代。`)) return;
+  if (!confirm(`確定要還原到「${label}」的狀態嗎？\n目前所有課程將被此版本取代。`)) return;
   closeLogModal();
   setSyncStatus('syncing', '還原中…');
   const res = await syncToSheets('restore', { row });
@@ -877,38 +794,120 @@ async function confirmRestore(row, label) {
   }
 }
 
-// ============================================================
-//  Init
-// ============================================================
+function saveCourse(){
+  const name = document.getElementById('f-name').value.trim();
+  const teacher = document.getElementById('f-teacher').value.trim();
+  if(!name||!teacher){ toast('請填寫課程名稱與授課老師'); return; }
+
+  const obj = {
+    id: editingId || uid(),
+    code: document.getElementById('f-code').value.trim(),
+    name,
+    teacher,
+    credits: +document.getElementById('f-credits').value,
+    year: document.getElementById('f-year').value,
+    sem: document.getElementById('f-sem').value,
+    type: document.getElementById('f-type').value,
+    periods: +document.getElementById('f-periods').value,
+    schedule: document.getElementById('f-schedule').value.trim(),
+    room: document.getElementById('f-room').value.trim(),
+    note: document.getElementById('f-note').value.trim(),
+  };
+
+  if(editingId){
+    const i = courses.findIndex(c=>c.id===editingId);
+    courses[i] = obj;
+  } else {
+    courses.push(obj);
+  }
+
+  save();
+  closeModal();
+  render();
+  toast(editingId ? '課程已更新' : '課程已新增');
+
+  syncToSheets('save', { course: obj });
+}
+
+function deleteCurrent(){
+  if(!editingId) return;
+  if(!confirm('確定要刪除這門課程嗎？')) return;
+
+  const id = editingId;
+  courses = courses.filter(c=>c.id!==id);
+  save();
+  closeModal();
+  render();
+  toast('課程已刪除');
+
+  syncToSheets('delete', { courseId: id });
+}
+
+function initGoogleAuth() {
+  if (typeof google === 'undefined') {
+    setTimeout(initGoogleAuth, 500);
+    return;
+  }
+
+  google.accounts.id.initialize({
+    client_id: '354674098691-e1c52ljh9p5dcobmn84gijj44jqjj0kh.apps.googleusercontent.com',
+    callback: handleCredential,
+    auto_select: false,
+    cancel_on_tap_outside: false,
+  });
+
+  google.accounts.id.renderButton(
+    document.getElementById('google-signin-btn'),
+    { theme: 'outline', size: 'large', locale: 'zh-TW', width: 280 }
+  );
+
+  google.accounts.id.prompt();
+}
+
+function handleCredential(response) {
+  const parts = response.credential.split('.');
+  const payload = JSON.parse(atob(parts[1].replace(/-/g,'+').replace(/_/g,'/')));
+
+  currentUser = {
+    email: payload.email,
+    name: payload.name || payload.email,
+    picture: payload.picture || '',
+    token: response.credential
+  };
+
+  isEditor = true;
+  document.getElementById('login-overlay').style.display = 'none';
+  document.getElementById('user-area').style.display = 'inline-flex';
+  document.getElementById('user-area').style.alignItems = 'center';
+  document.getElementById('user-area').style.gap = '8px';
+  document.getElementById('btn-add').style.display = 'inline-flex';
+
+  const pill = document.getElementById('user-pill');
+  pill.innerHTML = (currentUser.picture ? `<img src="${currentUser.picture}" alt="">` : '') + esc(currentUser.name);
+
+  loadFromSheets();
+}
+
+function signOut() {
+  if (typeof google !== 'undefined') google.accounts.id.disableAutoSelect();
+  currentUser = null;
+  isEditor = false;
+  document.getElementById('login-overlay').style.display = 'flex';
+  document.getElementById('user-area').style.display = 'none';
+  document.getElementById('btn-add').style.display = 'none';
+}
+
+function openLogModal() {
+  document.getElementById('log-modal').style.display = 'flex';
+  loadLog();
+}
+function closeLogModal() {
+  document.getElementById('log-modal').style.display = 'none';
+}
+
+render();
 window.addEventListener('load', initGoogleAuth);
 </script>
-
-<!-- Login overlay -->
-<div class="login-overlay" id="login-overlay">
-  <div class="login-card">
-    <h2>數位媒體設計系課程總表</h2>
-    <p>請使用 Google 帳號登入以檢視或編輯課程</p>
-    <div id="google-signin-btn"></div>
-    <p style="margin-top:16px;font-size:11px;color:var(--text3)">僅限 Google 帳號登入 · 每次修改都會記錄身份</p>
-  </div>
-</div>
-
-<!-- Log modal -->
-<div class="modal-overlay" id="log-modal" style="display:none" onclick="if(event.target===this)closeLogModal()">
-  <div class="modal" style="width:680px;max-width:96vw">
-    <div class="modal-header">
-      <h3>歷史紀錄</h3>
-      <button class="close-btn" onclick="closeLogModal()">✕</button>
-    </div>
-    <div class="modal-body" style="padding:0;max-height:60vh;overflow-y:auto">
-      <div id="log-content" style="padding:12px 16px;font-size:13px;color:var(--text3)">載入中…</div>
-    </div>
-    <div class="modal-footer">
-      <span style="font-size:12px;color:var(--text3);flex:1">點「還原」可回到該時間點的課程狀態</span>
-      <button class="btn" onclick="closeLogModal()">關閉</button>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
