@@ -643,7 +643,6 @@ function doImport(){
   toast(`成功匯入 ${imported.length} 門課程${merge?'（合併）':''}！`);
 }
 
-<script>
 function exportJSON(){
   const blob = new Blob([JSON.stringify(courses, null, 2)], { type:'application/json' });
   const a = document.createElement('a');
@@ -676,7 +675,6 @@ function exportCSV(){
   a.download = '課程總表.csv';
   a.click();
 }
-</script>
 
 function toast(msg){
   const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
